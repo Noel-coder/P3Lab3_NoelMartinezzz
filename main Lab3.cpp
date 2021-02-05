@@ -44,14 +44,22 @@ int* CantidadLetras(vector <char> vector, string cadena) {
 int* Ordenamiento(int*numeros,int cantidad) {
 	int* posiciones= new int[100];
 	int posicion;
+	int auxiliar2=0;
+	int auxiliar3=0;
 	for(int i=0; i < cantidad; i++) {
-		int auxiliar=numeros[i];
+		int auxiliar=numeros[auxiliar3];
 		for(int j=0; j < cantidad; j++) {
-			if(numeros[j]<auxiliar) {
+			auxiliar2=0;
+			if(numeros[auxiliar2] <  auxiliar) {
 				posicion++;
 			}
+			auxiliar2++;
 		}
+		auxiliar3++;
+		posiciones[i]=posicion;
+		posicion=0;
 	}
+	return posiciones;
 }
 
 int main() {
@@ -96,7 +104,21 @@ int main() {
 				break;
 			}
 			case 3: {
-
+				int numeros=0;
+				int numeroi;
+				cout<< "Ingrese la cantidad de numeros: "<<endl;
+				cin>>numeros;
+				int* _numeros;
+				int* _numeros2;
+				for(int i=0; i < numeros; i++){
+					cout<<"Ingrese un numero: "<<endl;
+					cin >> numeroi;
+					_numeros[i]=numeroi;
+				}
+				_numeros2=Ordenamiento(_numeros,numeros);
+				for(int i=0; i < numeros; i++){
+					cout << "[" << _numeros2[i] << "]";
+				}
 				break;
 			}
 			case 4: {
