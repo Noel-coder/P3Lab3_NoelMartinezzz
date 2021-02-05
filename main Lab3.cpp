@@ -1,8 +1,28 @@
 #include <iostream>
-
+#include <cstdlib>
+#include <vector>
 using namespace std;
 
-
+vector<char> letrasUnicas(string cadena) {
+	vector<char> vector;
+	//rellenamos nuestro vector
+	for(int i=0; i < cadena.length(); i++) {
+		vector.push_back(cadena[i]);
+	}
+	//iniciamos ambos for de manera inversa en modo a que no borre el primer caracter 
+	for(int i=vector.size()-1; i >=0; i--) {
+		int auxiliar=0;
+		for(int j=vector.size()-1; j>=0; j--) {
+			if(vector.at(j)==cadena[i]) {
+				auxiliar++;
+			}
+		}
+		if(auxiliar != 1 ) {
+			vector.erase(vector.begin()+i);
+		}
+	}
+	return vector;
+}
 int main() {
 	int opcion=1;
 	while(opcion != 5) {
@@ -16,25 +36,39 @@ int main() {
 		cin>>opcion;
 		switch(opcion) {
 			case 1: {
+				string cadena;
+				cout << "Ingrese la palabra: "<< endl;
+				cin>>cadena;
+				//creamos un vector y le asignamos el vector ya sin repetidos
+				vector<char>VectorResultante=letrasUnicas(cadena);
+				cout << "Palabra Resultante: ";
+				//impresion del vector con el formato indicado
+				cout<<"[";
+				for(int i= 0; i < VectorResultante.size(); i++) {
+					cout << VectorResultante.at(i);
+				}
+				cout<<"]"<<endl;
 				break;
-				case 2: {
-					break;
-				}
-				case 3: {
-
-					break;
-				}
-				case 4: {
-
-					break;
-				}
-				case 5: {
-					cout << "Gracias por usar el programa :)" << endl;
-					break;
-				}
-				return 0;
 			}
-		}
+			case 2: {
 
+				break;
+			}
+			case 3: {
+
+				break;
+			}
+			case 4: {
+
+				break;
+			}
+			case 5: {
+				cout << "Gracias por usar el programa :)" << endl;
+				break;
+			}
+			return 0;
+		}
 	}
+
 }
+
