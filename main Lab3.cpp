@@ -40,6 +40,19 @@ int* CantidadLetras(vector <char> vector, string cadena) {
 	return CantidadCaracteres;
 	delete CantidadCaracteres;
 }
+//funcion3
+int* Ordenamiento(int*numeros,int cantidad) {
+	int* posiciones= new int[100];
+	int posicion;
+	for(int i=0; i < cantidad; i++) {
+		int auxiliar=numeros[i];
+		for(int j=0; j < cantidad; j++) {
+			if(numeros[j]<auxiliar) {
+				posicion++;
+			}
+		}
+	}
+}
 
 int main() {
 	int opcion=1;
